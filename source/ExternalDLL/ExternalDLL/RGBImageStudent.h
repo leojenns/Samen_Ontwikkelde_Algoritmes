@@ -7,10 +7,9 @@
 #pragma once
 #include "RGBImage.h"
 class RGBImageStudent : public RGBImage {
-private :
-RGB *rgbarray;
+
 public:
-	
+	RGB *rgbarray;
 	RGBImageStudent();
 	RGBImageStudent(const RGBImageStudent &other);
 	RGBImageStudent(const int width, const int height);
