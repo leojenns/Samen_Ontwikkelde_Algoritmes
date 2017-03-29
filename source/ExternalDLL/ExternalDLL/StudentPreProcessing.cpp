@@ -4,13 +4,12 @@ IntensityImage * StudentPreProcessing::stepToIntensityImage(const RGBImage &imag
 	int width = image.getWidth();
 	int height = image.getHeight();
 	IntensityImage * grey = fa.newIntensityImage(width,height);
-	for (int i = 0 ; i < height ; i++) {
-		for (int j = 0 ; i < width ; i++) {
-			Intensity  get = image.getPixel(i, j).r;
-			grey->setPixel(i, j, get);
+	for (int collum = 0 ;collum  <= height-1 ; collum++) {
+		for (int row = 0 ; row <= width-1 ; row++) {
+			Intensity  get = image.getPixel(row, collum).g;
+			grey->setPixel(row, collum, get);
 		}
 	}
-
 	return grey;
 }
 
