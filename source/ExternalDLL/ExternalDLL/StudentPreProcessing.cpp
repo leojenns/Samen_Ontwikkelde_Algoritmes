@@ -1,12 +1,12 @@
 #include "StudentPreProcessing.h"
 IntensityImage * StudentPreProcessing::stepToIntensityImage(const RGBImage &image) const {
-	ImageFactory::ImplementationStudent fa;
 	int width = image.getWidth();
 	int height = image.getHeight();
-	IntensityImage * grey = fa.newIntensityImage(width,height);
+	IntensityImage * grey =new IntensityImageStudent(width,height);
 	for (int collum = 0 ;collum  <= height-1 ; collum++) {
 		for (int row = 0 ; row <= width-1 ; row++) {
-			Intensity  get = image.getPixel(row, collum).g;
+			RGB color = image.getPixel(row, collum);
+			Intensity get = color.g*0.72+color.r*0.21+color.b*0.07 ;
 			grey->setPixel(row, collum, get);
 		}
 	}

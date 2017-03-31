@@ -9,11 +9,14 @@
 #include "HereBeDragons.h"
 #include "ImageFactory.h"
 #include "DLLExecution.h"
-
+#include "exectimer.h"
 void drawFeatureDebugImage(IntensityImage &image, FeatureMap &features);
 bool executeSteps(DLLExecution * executor);
 
 int main(int argc, char * argv[]) {
+	BaseTimer* bt = new BaseTimer();
+
+	bt->start();
 
 	ImageFactory::setImplementation(ImageFactory::DEFAULT);
 	//ImageFactory::setImplementation(ImageFactory::STUDENT);
@@ -26,8 +29,8 @@ int main(int argc, char * argv[]) {
 
 
 	RGBImage * input = ImageFactory::newRGBImage();
-	if (!ImageIO::loadImage("D:\\Users\\Rolf\\Downloads\\TestA5.jpg", *input)) {
-		std::cout << "Image could not be loaded!" << std::endl;
+	if (!ImageIO::loadImage("C:\\female-1.png", *input)) {
+		//std::cout << "Image could not be loaded!" << std::endl;
 		system("pause");
 		return 0;
 	}
@@ -39,13 +42,15 @@ int main(int argc, char * argv[]) {
 
 
 	if (executeSteps(executor)) {
-		std::cout << "Face recognition successful!" << std::endl;
-		std::cout << "Facial parameters: " << std::endl;
+		//std::cout << "Face recognition successful!" << std::endl;
+		//std::cout << "Facial parameters: " << std::endl;
 		for (int i = 0; i < 16; i++) {
 			std::cout << (i+1) << ": " << executor->facialParameters[i] << std::endl;
 		}
 	}
-
+	bt->stop();
+	std::cout << "Time for the operation was: " << bt->elapsedSeconds() << " seconds (answer: " << ")" << std::endl;
+	bt->reset();
 	delete executor;
 	system("pause");
 	return 1;
