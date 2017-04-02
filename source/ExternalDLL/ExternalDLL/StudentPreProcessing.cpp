@@ -6,7 +6,7 @@ IntensityImage * StudentPreProcessing::stepToIntensityImage(const RGBImage &imag
 	for (int collum = 0 ;collum  <= height-1 ; collum++) {
 		for (int row = 0 ; row <= width-1 ; row++) {
 			RGB color = image.getPixel(row, collum);
-			Intensity get = color.g*0.72+color.r*0.21+color.b*0.07 ;
+			Intensity get = color.b ;
 			grey->setPixel(row, collum, get);
 		}
 	}
