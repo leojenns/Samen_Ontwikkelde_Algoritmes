@@ -24,5 +24,5 @@ Intensity * intensityarray;
 
 	Intensity getPixel(int x, int y) const;
 	Intensity getPixel(int i) const;
-	Intensity*getpicture()const;
+
 };

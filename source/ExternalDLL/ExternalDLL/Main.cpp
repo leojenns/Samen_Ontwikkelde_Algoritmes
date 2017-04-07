@@ -42,8 +42,8 @@ int main(int argc, char * argv[]) {
 
 
 	if (executeSteps(executor)) {
-		//std::cout << "Face recognition successful!" << std::endl;
-		//std::cout << "Facial parameters: " << std::endl;
+		std::cout << "Face recognition successful!" << std::endl;
+		std::cout << "Facial parameters: " << std::endl;
 		for (int i = 0; i < 16; i++) {
 			std::cout << (i+1) << ": " << executor->facialParameters[i] << std::endl;
 		}

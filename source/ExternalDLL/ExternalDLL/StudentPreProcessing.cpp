@@ -1,8 +1,15 @@
 #include "StudentPreProcessing.h"
 IntensityImage * StudentPreProcessing::stepToIntensityImage(const RGBImage &image) const {
+	///function for converting rgb to grayscale 
+	///  a intensity image is made by the imagefactory
+	///  with the double for loop all the pixels are going off and converted and placed in the itensityimage 
+	///
+	
+
 	int width = image.getWidth();
 	int height = image.getHeight();
-	IntensityImage * grey =new IntensityImageStudent(width,height);
+	IntensityImage * grey = ImageFactory::newIntensityImage(width,height);
+	
 	for (int collum = 0 ;collum  <= height-1 ; collum++) {
 		for (int row = 0 ; row <= width-1 ; row++) {
 			RGB color = image.getPixel(row, collum);
